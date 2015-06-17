@@ -63,9 +63,9 @@ exports.template = function(grunt, init, done) {
     props.devDependencies = {
       "grunt-contrib-jshint": "~0.6.4",
       "grunt-contrib-watch": "~0.5.3",
-      "profis": "git@github.com:52myu/profis.git",
-      "prolayout": "git@github.com:52myu/prolayout.git",
-      "proqiniu": "git@github.com:52myu/proqiniu.git"
+      "profis": "git+ssh://git@github.com:52myu/profis.git",
+      "prolayout": "git+ssh://git@github.com:52myu/prolayout.git",
+      "proqiniu": "git+ssh://git@github.com:52myu/proqiniu.git"
 
     };
     props.travis = /y/i.test(props.travis);
