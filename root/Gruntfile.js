@@ -78,9 +78,9 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-umi-fis');
-    grunt.loadNpmTasks('grunt-umi-layout');
-    grunt.loadNpmTasks('grunt-umi-qiniu');
+    grunt.loadNpmTasks('profis');
+    grunt.loadNpmTasks('prolayout');
+    grunt.loadNpmTasks('proqiniu');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks("grunt-contrib-watch");
 
