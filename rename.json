@@ -1,0 +1,4 @@
+{
+	"config/_development.json": "config/development.json",
+	".dock/docker.json": ".dock/{%= name %}.json"
+}

@@ -1,0 +1,86 @@
+/* 该文件用于生产环境，不要修改该文件，参考example.json新建development.json，修改相应的端口或配置*/
+{
+    "mongoConfig": {
+        "host": "mongoDb",
+        "database": "{%= name %}" //修改
+    },
+
+    "tracerConfig": {
+        "type": "dailyfile",
+        "arguments": {
+            "format": "{{timestamp}} <{{title}}> {{path}}:{{line}} \n{{message}}",
+            "dateformat": "HH:MM:ss",
+            "root": "path:./logs",
+            "level": "log"
+        }
+    },
+
+    "express": {
+        "view engine": "ejs",
+        "view cache": true,
+        "views": "path:./dist/views"
+    },
+
+    "view engines": {
+        "ejs": {
+            "module": "ejs",
+            "renderer": "renderFile"
+        }
+    },
+
+    "middleware": {
+        "static": {
+            "module": {
+                "arguments": ["path:./public"]
+            }
+        },
+
+        "favicon": {
+            "module": {
+                "arguments": ["path:./public/favicon.ico"]
+            }
+        },
+
+        "logger": {
+            "enabled": false
+        },
+
+        "cookieParser": {
+            "module": {
+                "arguments": ["6de5191ab3c401bcb266dff913"]
+            }
+        },
+
+        "session": {
+            "enabled": true,
+            "priority": 100,
+            "module": {
+                "name": "express-session",
+                "arguments": [{
+                    "key": "",
+                    "secret": "6de5191ab3c401bcb266dff913",
+                    "cookie": {
+                        "path": "/",
+                        "httpOnly": true,
+                        "maxAge": 1800000
+                    },
+                    "resave": true,
+                    "saveUninitialized": true,
+                    "proxy": null
+                }]
+            }
+        },
+
+        "appsec": {
+            "enabled": false
+        },
+
+        "router": {
+            "module": {
+                "arguments": [{
+                    "directory": "path:./controllers"
+                }]
+            }
+        }
+    }
+}

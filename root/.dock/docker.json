@@ -1,0 +1,23 @@
+{
+	"options": {
+		"image": "umiit/node:latest",
+		"name": "{%= name %}",
+		"volumes": ["./:/usr/src/app", "/etc/localtime:/etc/localtime:ro", "/data/docker_data/ssh:/root/.ssh"],
+		"links": ["mongo_default:mongoDb", "redis_default:redisDb"]
+	},
+	"tasks": {
+		"default": {
+			"args": "-d",
+			"command": "app:start",
+			"ports": "127.0.0.1:3601:3601"
+		},
+		"build": {
+			"args": "-it --rm",
+			"command": "app:build"
+		},
+		"help": {
+			"command": "app:help",
+			"args": "-it --rm"
+		}
+	}
+}
